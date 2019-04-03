@@ -26,24 +26,36 @@ public class Network {
 
     protected int siblingMembersNum(int index) {
         List<Integer> visited = new ArrayList<>();
-        Queue<Member> queue = new LinkedList<Member>();
-        Member member = members.get(index - 1);
+        Queue<Integer> queue = new LinkedList<>();
 
-        int count = 1;
+        int count = 1,
+            level = 1,
+            last = index;
         visited.add(index);
-        queue.add(member);
+        queue.add(index);
 
-        while(queue.size() > 0) {
+        while (queue.size() > 0) {
             System.out.printf("The current count is %d\n", count);
-            Member nextMember = queue.poll();
-            int[] memberSiblings = nextMember.siblings;
+            System.out.printf("The current level: %d\n", level);
+            int nextMember = queue.poll();
+            int[] memberSiblings = members.get(nextMember - 1).siblings;
             for (int i = 0; i < memberSiblings.length; i++) {
                 if (!visited.contains(memberSiblings[i])) {
-                    queue.add(members.get(memberSiblings[i] - 1));
+                    queue.add(memberSiblings[i] - 1);
                     count++;
                     visited.add(memberSiblings[i]);
                 }
             }
+
+            if (nextMember == last) {
+                level = ++level;
+                last = memberSiblings[memberSiblings.length - 1];
+            }
+
+            if (level == 6) {
+                break;
+            }
+
         }
 
         return count;

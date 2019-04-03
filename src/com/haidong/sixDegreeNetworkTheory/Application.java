@@ -13,14 +13,14 @@ public class Application {
 
     private static List<Member> loadMembers() {
         return new ArrayList<Member>() {{
-            add(new Member(new int[]{2, 3, 7}));
+            add(new Member(new int[]{2, 3}));
             add(new Member(new int[]{1, 3, 4, 6}));
-            add(new Member(new int[]{1, 2, 4, 5, 6, 7, 8}));
-            add(new Member(new int[]{2, 3, 5, 7}));
+            add(new Member(new int[]{1, 2, 4, 5, 6}));
+            add(new Member(new int[]{2, 3, 5}));
             add(new Member(new int[]{3, 6}));
             add(new Member(new int[]{2, 3, 5, 7, 8}));
-            add(new Member(new int[]{1, 3, 4, 6, 8}));
-            add(new Member(new int[]{3, 6, 7}));
+            add(new Member(new int[]{6, 8}));
+            add(new Member(new int[]{6, 7}));
         }};
     }
 }
