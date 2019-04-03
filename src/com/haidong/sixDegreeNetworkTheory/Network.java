@@ -1,5 +1,6 @@
 package com.haidong.sixDegreeNetworkTheory;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +11,14 @@ public class Network {
         this.members = members;
     }
 
-    public float percentageOfRelatedMembers(int index) {
+    public String percentageOfRelatedMembers(int index) {
         int count = siblingMembersNum(index);
         System.out.printf("The final count is %d\n", count);
-        float percentage = (float) count / members.size();
-        System.out.printf("The percentage is %.2f\n", percentage);
+
+        DecimalFormat df = new DecimalFormat("00.00%");
+        String percentage = df.format((float) count / members.size());
+
+        System.out.printf("The percentage is %s\n", percentage);
         return percentage;
     }
 

@@ -13,6 +13,6 @@ public class NetworkTest {
             add(new Network.Member(new int[]{}));
         }});
 
-        Assert.assertEquals(1.00f, network.percentageOfRelatedMembers(1), 0.00f);
+        Assert.assertEquals("100.00%", network.percentageOfRelatedMembers(1));
     }
 }
