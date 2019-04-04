@@ -60,12 +60,4 @@ public class Network {
 
         return count;
     }
-
-    public static class Member {
-        final int[] siblings;
-
-        public Member(int[] siblings) {
-            this.siblings = siblings;
-        }
-    }
 }

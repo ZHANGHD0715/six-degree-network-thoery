@@ -4,9 +4,12 @@ import com.haidong.sixDegreeNetworkTheory.Network.Member;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
+        readNetwork();
+
         Network network = new Network(loadMembers());
         network.percentageOfRelatedMembers(1);
     }
@@ -22,5 +25,22 @@ public class Application {
             add(new Member(new int[]{6, 8}));
             add(new Member(new int[]{6, 7}));
         }};
+    }
+
+    private static void readNetwork() {
+        Scanner sc = new Scanner(System.in);
+        int memberNum = sc.nextInt();
+        int networkEdgeNum = sc.nextInt();
+
+        Member[] members = new Member[memberNum];
+
+        for (int i = 0; i < memberNum; i++) {
+            members[i] = new Member(i + 1);
+        }
+
+        for (int i = 0; i < networkEdgeNum; i++) {
+            int start = sc.nextInt();
+            int end = sc.nextInt();
+        }
     }
 }
